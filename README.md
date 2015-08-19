@@ -18,7 +18,7 @@ This repo contains an implementation of CNNs described in the paper [Molding CNN
  
  * [Stanford Sentiment Treebank](http://nlp.stanford.edu/sentiment/index.html): <br>
   The annotated constituency trees from the treebank are converted into plain text sequences. `data/stsa.fine.*` are annotated with 5-class fine-grained labels; `data/stsa.binary.*` are annotated with binary labels. <br>
-  In the training files `data/stsa.binary.phrases.train` and `data/stsa.fine.phrases.train` we also add these phrase annotations. Each phrase (and its sentiment label) is a separate training instance.
+  In the training files `data/stsa.binary.phrases.train` and `data/stsa.fine.phrases.train` we also add phrase annotations. Each phrase (and its sentiment label) is a separate training instance.
 
  * [Glove](http://nlp.stanford.edu/projects/glove/) word embeddings: <br>
   We use the 840B Common Crawl version. Note the original compressed file is 2GB. In the directory `word_vectors/` we provide a smaller version (~37MB) by pruning words not in the sentiment treebank.
