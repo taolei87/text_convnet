@@ -49,7 +49,7 @@ Another example with more hyperparamter settings:
 ```
 export OMP_NUM_THREADS=1;   #specify number of cores 
 
-THEANO_FLAGS='device=cpu,floatX=float32'; python model.py  \
+THEANO_FLAGS='device=cpu,floatX=float64'; python model.py  \
     --embedding word_vectors/stsa.glove.840B.d300.txt.gz  \
     --train data/stsa.binary.phrases.train  \
     --dev data/stsa.binary.dev  --test data/stsa.binary.test  \
