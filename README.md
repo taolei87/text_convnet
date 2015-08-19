@@ -1,10 +1,10 @@
 ## CNNs with non-linear and non-consecutive feature maps
 
-----
+
 
 This repo contains an implementation of CNNs described in the paper [Molding CNNs for text: non-linear, non-consecutive convolutions](http://arxiv.org/abs/1508.04112) by Tao Lei, Regina Barzilay and Tommi Jaakkola.
 
-----
+
 
 #### Dependencies
 
@@ -12,7 +12,7 @@ This repo contains an implementation of CNNs described in the paper [Molding CNN
  * Python >= 2.7
  * Numpy
 
-----
+
 
 #### Data
  
@@ -24,9 +24,9 @@ This repo contains an implementation of CNNs described in the paper [Molding CNN
   We use the 840B Common Crawl version. Note the original compressed file is 2GB. In the directory `word_vectors/` we provide a smaller version (~37MB) by pruning words not in the sentiment treebank.
 
  * [Sogou Chinese news corpora](http://www.sogou.com/labs/dl/c.html): <br>
-  Data redistribution is not allowed. Please contact Sogou Lab to obtain the news corpura.
+  Data redistribution is not allowed. Please contact Sogou Lab to obtain the news corpora.
 
-----
+
 
 #### Usage
 
@@ -43,4 +43,18 @@ python model.py --embedding word_vectors/stsa.glove.840B.d300.txt.gz  \
 We can optionally specify Theano configs via `THEANO_FLAGS`:
 ```
 THEANO_FLAGS='device=cpu,floatX=float32'; python model.py ...
+```
+
+Another example with more hyperparamter settings:
+```
+export OMP_NUM_THREADS=1;   #specify number of cores 
+
+THEANO_FLAGS='device=cpu,floatX=float32'; python model.py  \
+    --embedding word_vectors/stsa.glove.840B.d300.txt.gz  \
+    --train data/stsa.binary.phrases.train  \
+    --dev data/stsa.binary.dev  --test data/stsa.binary.test  \
+    --model output_model  \
+    --depth 3  --order 3  --decay 0.5  --hidden_dim 200  \
+    --dropout_rate 0.3  --l2_reg 0.00001  --act relu  \
+    --learning adagrad  --learning_rate 0.01
 ```
