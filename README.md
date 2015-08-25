@@ -27,6 +27,23 @@ This repo contains an implementation of CNNs described in the paper [Molding CNN
   Data redistribution is not allowed. Please contact Sogou Lab to obtain the news corpora.
 
 
+#### Results
+
+Directory `trained_models` contains saved models of the sentiment classification task. We reproduced the results mentioned in our paper by setting the random seed explicitly. The performance of each trained models are listed below:  
+
+Fine-grained models  |  Dev acc.  |  Test acc. 
+:--- | --- | ---
+stsa.root.fine.pkl.gz  |  49.5  | 50.6 
+stsa.phrases.fine.pkl.gz  |  53.4  | 51.2  
+stsa.phrases.fine.2.pkl.gz **  |  53.5  |  52.7
+| |
+**Binary models**  |  **Dev acc.**  |  **Test acc.**
+stsa.root.binary.pkl.gz  |  87.0  |  87.0
+stsa.phrases.binary.pkl.gz  |  88.9  |  88.6
+| |
+** **Note**: more recent run (`stsa.phrases.fine.2.pkl.gz`) gets better results than those reported in our paper.
+
+<br>
 
 #### Usage
 
