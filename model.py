@@ -339,9 +339,9 @@ class ConvModel:
                     rng.randint(9999))
 
             prev_output = slices
-            prev_output = prev_output * srng.binomial(n=1,
-                p=1-dropout_p, size=prev_output.shape) / ((1-dropout_p)**0.5)
-
+            prev_output = prev_output * srng.binomial(
+                n=1, p=1-dropout_p, size=prev_output.shape,
+                dtype=theano.config.floatX) / ((1-dropout_p)**0.5)
             for i in range(depth):
                 layer = StrConvLayer(
                           input = prev_output,
@@ -359,13 +359,15 @@ class ConvModel:
                     )
                 dropout_layers.append(layer)
                 prev_output = layer.output
-                prev_output = prev_output * srng.binomial(n=1,
-                    p=1-dropout_p, size=prev_output.shape) / (1-dropout_p)
+                prev_output = prev_output * srng.binomial(
+                    n=1, p=1-dropout_p, size=prev_output.shape,
+                    dtype=theano.config.floatX) / (1-dropout_p)
                 softmax_inputs.append(T.sum(layer.output, axis=0)) # summing over columns
 
             softmax_input = T.concatenate(softmax_inputs, axis=1) / x.shape[0]
-            softmax_input = softmax_input * srng.binomial(n=1,
-                    p=1-dropout_p, size=softmax_input.shape) / ((1-dropout_p)**0.5)
+            softmax_input = softmax_input * srng.binomial(
+                n=1, p=1-dropout_p, size=softmax_input.shape,
+                dtype=theano.config.floatX) / ((1-dropout_p)**0.5)
 
             dropout_layers.append( SoftmaxLayer(
                     input = softmax_input,
