@@ -1,5 +1,9 @@
-## CNNs with non-linear and non-consecutive feature maps
 
+#### News
+The code has been re-factored and integrated into the new repo: https://github.com/taolei87/rcnn/tree/master/code/sentiment
+
+
+## CNNs with non-linear and non-consecutive feature maps
 
 
 This repo contains an implementation of CNNs described in the paper [Molding CNNs for text: non-linear, non-consecutive convolutions](http://arxiv.org/abs/1508.04112) by Tao Lei, Regina Barzilay and Tommi Jaakkola.
