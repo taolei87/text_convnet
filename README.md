@@ -2,6 +2,7 @@
 #### News
 The code has been re-factored and integrated into the new repo: https://github.com/taolei87/rcnn/tree/master/code/sentiment
 
+The new repo is recommended because it is more modular and supports more running options, type of models etc. 
 
 ## CNNs with non-linear and non-consecutive feature maps
 
